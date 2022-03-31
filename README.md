@@ -9,6 +9,30 @@
 - Buffer 是将资源的所有数据先放到 Buffer 区中,一旦读取完后再把结果给回调函数.所以会有内存的限制,一旦超过内存,就会摆错.
 - Stream 是实时的读取和传给消费者
 
+## Stream 常见输入方式
+
+- 控制台输入
+- `http` 请求
+- 读取文件
+
+## Stream 常见输出方式
+
+- 控制台输出
+- `http` 响应
+- 写入文件
+
+## 应用场景
+
+主要是处理`IO` 操作,`http请求`和`文件操作`都属于`IO`操作.
+因为如果遇到大数据,`IO`操作对硬件要求很高,所以选择`stream`方式处理.
+
+## 流的四种类型
+
+- `Writable`: 可以写入数据的流（例如，`fs.createWriteStream()`）。
+- `Readable`: 可以从中读取数据的流（例如，`fs.createReadStream()`）。
+- `Duplex`: `Readable` 和 `Writable` 的流（例如，`net.Socket`）。
+- `Transform`: 可以在写入和读取数据时**修改**或**转换**数据的 `Duplex` 流（例如，`zlib.createDeflate()`）。
+
 ## 样例
 
 ### 1. `buffer.js`
