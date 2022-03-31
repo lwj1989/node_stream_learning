@@ -81,3 +81,4 @@ node gzipSend.js test.txt localhost
 
 1. [《Node.js 设计模式》使用流进行编码](https://juejin.cn/post/6844903543678189576)
 2. [Understanding Streams In NodeJS](https://medium.com/bb-tutorials-and-thoughts/understanding-streams-in-nodejs-43736e7acb4b)
+3. [深入理解 Node.js Stream 内部机制](https://fed.taobao.org/blog/taofed/do71ct/nodejs-stream/)
