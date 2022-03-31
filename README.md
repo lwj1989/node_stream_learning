@@ -37,3 +37,6 @@ node gzipReceive.js
 # 将test.txt文件发送给localhost,gzipSend.js文件内指定了localhost的端口为3000
 node gzipSend.js test.txt localhost
 ```
+
+> `crypto`的加密解密算法有一个注意点是,当加密算法是`aes-128-ecb`、`aes-128-cbc`时,key的长度需要是16位.如果是`aes-256-ecb`、`aes-256-cbc`,则key的长度需要是32位.否则会报错.
+> 文章参考: [https://www.cnblogs.com/jaxu/p/11649131.html](https://www.cnblogs.com/jaxu/p/11649131.html)
