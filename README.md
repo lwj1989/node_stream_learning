@@ -77,6 +77,10 @@ node gzipSend.js test.txt localhost
 > `crypto`的加密解密算法有一个注意点是，当加密算法是`aes-128-ecb`、`aes-128-cbc`时，key 的长度需要是 16 位。如果是`aes-256-ecb`、`aes-256-cbc`,则 key 的长度需要是 32 位。否则会报错。
 > 文章参考：[https://www.cnblogs.com/jaxu/p/11649131.html](https://www.cnblogs.com/jaxu/p/11649131.html)
 
+### `csvStreamTransform.js` 和 `csvBufferTransform.js`
+
+![流和 Buffer 读取 csv 对比](https://tva1.sinaimg.cn/large/e6c9d24ely1h0ue8xx56ej218i07ywf7.jpg)
+
 ## 参考
 
 1. [《Node.js 设计模式》使用流进行编码](https://juejin.cn/post/6844903543678189576)

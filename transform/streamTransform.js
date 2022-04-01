@@ -9,7 +9,7 @@ const writeStream = fs.createWriteStream("../README.md.gz");
 // 定义一个转换流，一会下面要把上面的可读流通过 pipe 管道进行数据转换。
 const myTransform = new Transform({
   transform(chunk, encoding, callback) {
-    this.push(chunk.toString('binary'));
+    this.push(chunk.toString("binary"));
     callback();
   },
 });
