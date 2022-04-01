@@ -1,6 +1,6 @@
-process.stdin.on("data", (chunk) => { // 这里process.stdin 就是一个stream 对象.
-  console.log("输入的数据是:", chunk); // 这里打印出来是Buffer 二进制对象
-  console.log("输入的数据字符串是:", chunk.toString()); // 这里打印出来是输入的字符串.
+process.stdin.on("data", (chunk) => { // 这里 process.stdin 就是一个 stream 对象。
+  console.log("输入的数据是:", chunk); // 这里打印出来是 Buffer 二进制对象
+  console.log("输入的数据字符串是:", chunk.toString()); // 这里打印出来是输入的字符串。
 });
 
 // node stdin.js
@@ -9,6 +9,6 @@ process.stdin.on("data", (chunk) => { // 这里process.stdin 就是一个stream 
 // 输入的数据字符串是: 123
 
 /**
- * stream.Readable 对象可以监听 data,end,open,close,error,readable,pause 等事件.
- * 使用 .on(event, callback) 方法监听事件.
+ * stream.Readable 对象可以监听 data,end,open,close,error,readable,pause 等事件。
+ * 使用 .on(event, callback) 方法监听事件。
  */

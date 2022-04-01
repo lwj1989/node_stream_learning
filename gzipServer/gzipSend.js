@@ -1,0 +1,40 @@
+const fs = require("fs"); // 文件系统 http://nodejs.cn/api/fs.html#file-system
+const zlib = require("zlib"); // zlib 模块提供了 gzip,deflate/inflate 等压缩算法 http://nodejs.cn/api/zlib.html#zlib
+const http = require("http"); // 引入 http 模块，创建 http server http://nodejs.cn/api/http.html#http
+const path = require("path"); // path 模块提供了用于处理文件和目录的路径的工具 http://nodejs.cn/api/path.html#path
+const crypto = require("crypto"); // crypto 模块提供了加密解密功能 http://nodejs.cn/api/crypto.html#crypto
+
+/**
+ * 1. 首先启动服务器 node gzipReceive.js
+ * 2. 运行命令发送指定文件到指定服务器 node gzipSend.js <path to file> localhost
+ */
+
+const file = process.argv[2]; // 获取命令行参数
+const server = process.argv[3]; // 获取服务器地址
+
+const option = {
+  hostname: server,
+  port: 3000,
+  path: "/",
+  method: "PUT",
+  headers: {
+    filename: path.basename(file),
+    "Content-Type": "application/octet-stream",
+    "Content-Encoding": "gzip",
+  },
+};
+
+// http.request() 发送 http 请求到服务器，并创建 http.ClientRequest 对象
+const req = http.request(option, (res) => {
+  console.log("服务器响应:" + res.statusCode);
+});
+
+fs.createReadStream(file)
+  .pipe(zlib.createGzip())
+  .pipe(
+    crypto.createCipheriv("aes-128-cbc", "1234567890123456", "1234567890123456")
+  ) // 加密 第一个参数为加密算法，第二个为加密密钥，第三个为初始向量  http://nodejs.cn/api/crypto.html#cryptocreatecipherivalgorithm-key-iv-options
+  .pipe(req)
+  .on("finish", () => {
+    console.log("文件已经发送完成！");
+  });
