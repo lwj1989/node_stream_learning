@@ -4,6 +4,8 @@ const zlib = require("zlib");
 const crypto = require("crypto");
 
 /**
+ *
+ *
  * 1. 首先启动服务器 node gzipReceive.js
  * 2. 运行命令发送指定文件到指定服务器 node gzipSend <path to file> localhost
  *

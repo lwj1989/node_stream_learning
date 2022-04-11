@@ -4,6 +4,8 @@ const zlib = require("zlib");
 
 /**
  * 这里使用 Buffer 压缩文件，只能压缩小于 2G 的文件，否则会报错内存溢出.File size (14734612853) is greater than 2 GB
+ *
+ * 如果出现 fs/promises 找不到，需要切换 node 版本到 14+
  */
 try {
   const source = process.argv[2]; // 输入要压缩的文件路径

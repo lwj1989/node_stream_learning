@@ -1,6 +1,11 @@
 //使用流方式拷贝文件
 const fs = require("fs");
 
+/**
+ * Stream 方式拷贝文件
+ * 在内存占用上和速度上都有优势，对文件的整体大小没有限制。
+ */
+
 const source = process.argv[2];
 const target = process.argv[3];
 

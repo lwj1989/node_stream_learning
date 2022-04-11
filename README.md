@@ -45,41 +45,6 @@ Youtube,Netflix 等流媒体服务，也不是一次性下载视频和音频，�
 - `Duplex`: `Readable` 和 `Writable` 的流（例如，`net.Socket`）。
 - `Transform`: 可以在写入和读取数据时**修改**或**转换**数据的 `Duplex` 流（例如，`zlib.createDeflate()`）。
 
-## 样例
-
-### 1. `buffer.js`
-
-使用`buffer`处理文件，读取文件到 `buffer`,然后处理。
-
-执行 `node buffer.js stream.js`,会读取`stream.js`文件，压缩成一个`stream.js.gz`文件。
-
-### 2. `stream.js`
-
-使用`stream`流式处理文件，一边读取，一边使用`pipe`来流式处理。
-
-执行 `node stream.js buffer.js`,会读取`buffer.js`文件，压缩成一个`buffer.js.gz`文件。
-
-### 3. `gzipSend.js` 和 `gzipReceive.js`
-
-`gzipReceive.js` 用于启动一个服务器，监听 3000 端口，接收文件。
-
-```bash
-node gzipReceive.js
-```
-
-`gzipSend.js` 用于发送一个请求，将指定文件发给指定服务器地址。
-
-```bash
-# 将 test.txt 文件发送给 localhost,gzipSend.js 文件内指定了 localhost 的端口为 3000
-node gzipSend.js test.txt localhost
-```
-
-> `crypto`的加密解密算法有一个注意点是，当加密算法是`aes-128-ecb`、`aes-128-cbc`时，key 的长度需要是 16 位。如果是`aes-256-ecb`、`aes-256-cbc`,则 key 的长度需要是 32 位。否则会报错。
-> 文章参考：[https://www.cnblogs.com/jaxu/p/11649131.html](https://www.cnblogs.com/jaxu/p/11649131.html)
-
-### `csvStreamTransform.js` 和 `csvBufferTransform.js`
-
-![流和 Buffer 读取 csv 对比](https://tva1.sinaimg.cn/large/e6c9d24ely1h0ue8xx56ej218i07ywf7.jpg)
 
 ## 参考
 
